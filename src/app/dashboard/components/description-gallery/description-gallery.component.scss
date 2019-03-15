@@ -1,0 +1,12 @@
+ul {
+  li {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #000;
+    
+    &.active {
+      background: #f00;
+    }
+  }
+}

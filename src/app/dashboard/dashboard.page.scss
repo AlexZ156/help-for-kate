@@ -1,0 +1,14 @@
+:host {
+  max-width: 960px;
+  display: flex;
+  margin: 0 auto;
+}
+
+.ellipse-gallery-holder,
+kt-description-gallery{
+  width: 50%;
+}
+
+.ellipse-gallery-holder {
+  padding: 0 50px;
+}

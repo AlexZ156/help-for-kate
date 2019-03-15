@@ -1,0 +1,17 @@
+<ng-container *ngFor="let tem of data; let i = index;">
+  <div *ngIf="currentIndex === i">
+    assadsad {{i+1}}
+  </div>
+</ng-container>
+
+
+<ul>
+  <li
+    [ngClass]="{'active': currentIndex === i}"
+    *ngFor="let tem of data; let i = index;"
+    (click)="goToSlide(i)"
+  ></li>
+</ul>
+
+<button (click)="prevSlide($event)">prev</button>
+<button (click)="nextSlide($event)">next</button>
