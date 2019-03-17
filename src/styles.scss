@@ -1,1 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+html {
+  font-size: 10px;
+}
+
+body {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+kt-sing-in-page,
+kt-sing-up-page {
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+
+  .invalid-feedback {
+    display: block;
+  }
+}
+
+.login-holder {
+  width: 400px;
+}
