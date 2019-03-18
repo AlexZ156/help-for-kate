@@ -5,6 +5,8 @@ html {
 body {
   margin: 0;
   font-size: 1.6rem;
+  background: #e2e2e2;
+  //min-width: 1000px;
 }
 
 kt-sing-in-page,
@@ -21,4 +23,7 @@ kt-sing-up-page {
 
 .login-holder {
   width: 400px;
+  padding: 3rem;
+  background: #fff;
+  border-radius: 1rem;
 }

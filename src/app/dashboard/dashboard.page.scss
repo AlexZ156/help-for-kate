@@ -1,7 +1,17 @@
 :host {
+  display: block;
+  min-width: 1000px;
+}
+
+header {
+  display: block;
+  background: #363f48;
+  padding: 1rem 0;
+}
+
+.container {
   max-width: 960px;
-  display: flex;
-  margin: 0 auto;
+  width: 960px;
 }
 
 .ellipse-gallery-holder,

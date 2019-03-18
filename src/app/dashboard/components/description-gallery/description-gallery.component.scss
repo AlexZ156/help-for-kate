@@ -1,12 +1,20 @@
 ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+
   li {
-    width: 20px;
-    height: 20px;
+    margin: 0 0.3rem;
+    width: 1rem;
+    height: 1rem;
     border-radius: 50%;
-    background: #000;
-    
+    background: #363f48;
+    cursor: pointer;
+
     &.active {
-      background: #f00;
+      background: #3498db;
     }
   }
 }

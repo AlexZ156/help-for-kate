@@ -2,12 +2,14 @@ import { Injectable } from '@angular/core';
 import { LocalStorageService } from 'ngx-webstorage';
 import { User } from '../models';
 import { CookieService } from 'ngx-cookie-service';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class LoginService {
   private _loginKey = 'kt-user';
 
   constructor(
+    private _router: Router,
     private _storage: LocalStorageService,
     private _cookie: CookieService
   ) {
@@ -60,6 +62,7 @@ export class LoginService {
     if (!user) {
       return Promise.resolve(false);
     }
+
     return new Promise(resolve => {
       if (user.password === password) {
         this._cookie.set(this._loginKey, name, 30, '/');
@@ -68,5 +71,14 @@ export class LoginService {
         resolve(false);
       }
     });
+  }
+
+  public logOut(): void {
+    this._cookie.delete(this._loginKey);
+    this.goToLogin();
+  }
+
+  goToLogin(): void {
+    this._router.navigate(['login', 'signin']);
   }
 }
