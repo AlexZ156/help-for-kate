@@ -1,6 +1,7 @@
 :host {
   display: block;
   min-width: 1000px;
+  padding-bottom: 4rem;
 }
 
 header {
@@ -15,8 +16,12 @@ header {
 }
 
 .ellipse-gallery-holder,
-kt-description-gallery{
+kt-description-gallery {
   width: 50%;
+}
+
+kt-description-gallery {
+  padding-right: 3rem;
 }
 
 .ellipse-gallery-holder {
