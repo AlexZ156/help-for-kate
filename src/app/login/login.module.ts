@@ -4,12 +4,14 @@ import { LoginRoutingModule } from './login-routing.module';
 import { FormsModule } from '@angular/forms';
 import { SigninPage } from './components/signin/signin.page';
 import { CommonModule } from '@angular/common';
+import { IconModule } from '../shared/icon/icon.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
-    LoginRoutingModule
+    LoginRoutingModule,
+    IconModule
   ],
   declarations: [
     SignupPage,

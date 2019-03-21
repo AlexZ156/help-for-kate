@@ -21,9 +21,19 @@ kt-sing-up-page {
   }
 }
 
-.login-holder {
+.login-wrapper {
   width: 400px;
+}
+
+.login-holder {
   padding: 3rem;
   background: #fff;
   border-radius: 1rem;
+}
+
+.login-logo {
+  display: block;
+  width: 10rem;
+  margin: 0 auto 2rem;
+  font-size: 10rem;
 }
