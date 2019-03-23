@@ -74,7 +74,7 @@ export class LoginService {
   }
 
   public logOut(): void {
-    this._cookie.delete(this._loginKey);
+    this._cookie.delete(this._loginKey, '/');
     this.goToLogin();
   }
 
