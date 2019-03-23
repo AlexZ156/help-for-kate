@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { SigninPage } from './components/signin/signin.page';
 import { CommonModule } from '@angular/common';
 import { IconModule } from '../shared/icon/icon.module';
+import { LogoComponent } from './components/logo/logo.component';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { IconModule } from '../shared/icon/icon.module';
   ],
   declarations: [
     SignupPage,
-    SigninPage
+    SigninPage,
+    LogoComponent
   ]
 })
 

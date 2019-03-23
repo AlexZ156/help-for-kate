@@ -34,7 +34,7 @@ export class LoginService {
 
   private getUser(name: string): User | null {
     const storage: User[] = this._storage.retrieve(this._loginKey);
-    const user: User = storage.find(user => user.name === name);
+    const user: User = storage.find(usr => usr.name === name);
 
     return typeof user === 'object' ? user : null;
   }

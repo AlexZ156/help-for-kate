@@ -19,7 +19,7 @@ export class SignupPage {
 
   public nameValid = true;
 
-  private _passwordLength = 6;
+  private _passwordLength = 5;
 
   private _nameLength = 3;
 

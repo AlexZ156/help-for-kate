@@ -6,8 +6,6 @@ import { SigninPage } from './components/signin/signin.page';
 const routes: Routes = [
   {
     path: '',
-    // pathMatch: 'full',
-    // redirectTo: 'signup',
     children: [
       {
         path: 'signup',

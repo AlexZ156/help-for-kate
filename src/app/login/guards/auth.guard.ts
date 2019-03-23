@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRoute, ActivatedRouteSnapshot, Router, RouterStateSnapshot } from '@angular/router';
+import { ActivatedRouteSnapshot, Router, RouterStateSnapshot } from '@angular/router';
 import { LoginService } from '../services/login.service';
 
 @Injectable()
@@ -11,7 +11,7 @@ export class AuthGuard {
     private _loginService: LoginService
   ) {}
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): any {
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     const isLoginPage = this.isLoginPage(route);
 
     if (!this._loginService.isLoggedIn()) {

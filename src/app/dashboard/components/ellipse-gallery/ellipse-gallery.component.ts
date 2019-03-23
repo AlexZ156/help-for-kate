@@ -36,13 +36,13 @@ export class EllipseGalleryComponent implements OnInit {
     this.onWindowResize();
   }
 
-  nextSlide(e?: MouseEvent): void {
+  public nextSlide(e?: MouseEvent): void {
     if (e) {
       e.preventDefault();
     }
     if (!this.isAnimationActive) {
       this.prevIndex = this.currentIndex;
-      if (this.currentIndex < this.slides.length -1) {
+      if (this.currentIndex < this.slides.length - 1) {
         this.currentIndex++;
       } else {
         this.currentIndex = 0;
@@ -54,7 +54,7 @@ export class EllipseGalleryComponent implements OnInit {
     }
   }
 
-  prevSlide(e?: MouseEvent): void {
+  public prevSlide(e?: MouseEvent): void {
     if (e) {
       e.preventDefault();
     }
@@ -72,7 +72,7 @@ export class EllipseGalleryComponent implements OnInit {
     }
   }
 
-  goToSlide(num): void {
+  public goToSlide(num): void {
     if (num !== null && num !== this.currentIndex && !this.isAnimationActive) {
       this.prevIndex = this.currentIndex;
       num = Math.max(Math.min(num, this.slides.length - 1), 0);
@@ -83,19 +83,19 @@ export class EllipseGalleryComponent implements OnInit {
     }
   }
 
-  getDirectionByIndex(i: number): number {
+  private getDirectionByIndex(i: number): number {
     let arr = this.data.map((item, index) => index);
     const leftArr = arr.slice();
     const rightArr = arr.slice().reverse();
     arr = leftArr.concat(arr).concat(rightArr);
     const leftIndex = arr.indexOf(i);
     const middleIndex = arr.indexOf(this.currentIndex, leftIndex);
-    const rightIndex = arr.indexOf(i, middleIndex)
+    const rightIndex = arr.indexOf(i, middleIndex);
 
     return middleIndex - leftIndex > rightIndex - middleIndex ? 1 : -1;
   }
 
-  defineSlideVisibility() {
+  private defineSlideVisibility(): void {
     const slidesIndexArr = this.getSlidesIndexByNum(this.currentIndex);
     const step = this.ellipse / this.slidesToShow;
     const diff = this.ellipse - step * (this.slidesToShow - 1) * this.shearFactor;
@@ -120,7 +120,7 @@ export class EllipseGalleryComponent implements OnInit {
     }
   }
 
-  getSlidesIndexByNum(num) {
+  private getSlidesIndexByNum(num): number[] {
     const diff = this.slides.length - (num + this.slidesToShow);
     let indexArr = this.slides.slice(num, num + this.slidesToShow);
 
@@ -131,7 +131,7 @@ export class EllipseGalleryComponent implements OnInit {
     return indexArr.map(({index}) => index);
   }
 
-  getSlideParams(slideItem, progress = 1) {
+  private getSlideParams(slideItem, progress = 1): any {
     const scaleStep = (1 - this.lastSlideScale) / this.slidesToShow;
     let diff = slideItem.currentPosition - slideItem.prevPosition;
 
@@ -148,7 +148,7 @@ export class EllipseGalleryComponent implements OnInit {
     return { left, top, scale, scaleToAnimate };
   }
 
-  setSlidesPosition(shouldAnimate = false) {
+  private setSlidesPosition(shouldAnimate = false): void {
     if (this.isAnimationActive) {
       return;
     }
@@ -175,16 +175,16 @@ export class EllipseGalleryComponent implements OnInit {
     }
   }
 
-  updateParams() {
+  private updateParams(): void {
     this.galleryWidth = this.hostElem.nativeElement.clientWidth;
     this.galleryHeight = this.galleryWidth * this.ellipseRatio;
     this.ellipseLength = Math.PI * (this.galleryWidth + this.galleryHeight) / 2;
     this.ellipseLengthKoef = this.ellipse / this.ellipseLength;
   }
 
-  animate(item) {
+  private animate(item): Promise<any> {
     item.params = this.getSlideParams(item);
-    const prevScale = /*item.slide.getBoundingClientRect().width / item.width*/ item.params.scaleToAnimate;
+    const prevScale = item.params.scaleToAnimate;
     const scaleDiff = prevScale - item.params.scale;
 
     return this.animation({
@@ -198,7 +198,7 @@ export class EllipseGalleryComponent implements OnInit {
     });
   }
 
-  animation(options) {
+  private animation(options): Promise<any> {
     return new Promise(resolve => {
       const start = performance.now();
       const animate = (time) => {
